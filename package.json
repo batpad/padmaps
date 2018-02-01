@@ -1,0 +1,30 @@
+{
+  "name": "padmaps",
+  "version": "1.0.0",
+  "description": "Experiments with Mapbox GL and the pan.do/ra API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/batpad/padmaps.git"
+  },
+  "author": "",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/batpad/padmaps/issues"
+  },
+  "homepage": "https://github.com/batpad/padmaps#readme",
+  "devDependencies": {
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.1"
+  },
+  "dependencies": {
+    "delay": "^2.0.0",
+    "lodash": "^4.17.4",
+    "turf-bbox-polygon": "^3.0.12",
+    "uuid": "^3.2.1"
+  }
+}
