@@ -1,12 +1,12 @@
 const callAPI = require('./call-api');
+const pMap = require('p-map');
 
 module.exports = fetchClipsInBBox;
 
 function fetchClipsInBBox(bounds) {
 	return fetchPlaces(bounds)
 		.then(places => {
-			const promises = places.map(place => fetchClipsAtPlace(place));
-			return Promise.all(promises);
+			return pMap(places, fetchClipsAtPlace);
 		});
 }
 
@@ -31,7 +31,7 @@ function fetchPlaces(bounds) {
 			}],
 			"operator": "&"
 		},
-		"range": [0, 4],
+		"range": [0, 10],
 		"sort": [{
 			"key": "area",
 			"operator": "+"
@@ -47,12 +47,12 @@ function fetchClipsAtPlace(place) {
 		"query": {
 			"conditions": [{
 				"key": "place",
-				"value": "CDD",
+				"value": place.id,
 				"operator": "=="
 			}],
 			"operator": "&"
 		},
-		"range": [0, 3],
+		"range": [0, 1],
 		"sort": [{
 			"key": "title",
 			"operator": "+"

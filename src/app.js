@@ -46,8 +46,11 @@ function playVideo(video) {
         'id': `layer-${sourceId}`,
         'source': sourceId
     });
-    console.log('playing video', video);
-    return delay(300);
+    const videoElem = padMap.getSource(sourceId).getVideo();
+    return delay(300).then(() => {
+        const videoElem = padMap.getSource(sourceId).getVideo();
+        videoElem.currentTime = video.clips[0].in;
+    })
 }
 
 function getVideoFromId(id) {
