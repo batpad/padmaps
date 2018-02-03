@@ -31,7 +31,7 @@ function fetchPlaces(bounds) {
 			}],
 			"operator": "&"
 		},
-		"range": [0, 10],
+		"range": [0, 20],
 		"sort": [{
 			"key": "area",
 			"operator": "+"
